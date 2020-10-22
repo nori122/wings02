@@ -1,5 +1,10 @@
 <template>
-  <firebase-auth />
+  <div>
+    <v-card class="pa-5">
+      <p class="text-center">ユーザー登録/ログイン</p>
+      <firebase-auth />
+    </v-card>
+  </div>
 </template>
 
 <script>

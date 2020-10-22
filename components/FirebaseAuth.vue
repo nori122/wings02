@@ -16,7 +16,7 @@ export default {
           new firebaseui.auth.AuthUI(auth)
 
         const config = {
-          signInOptions: [authProviders.Email, authProviders.Facebook],
+          signInOptions: [authProviders.Email, authProviders.Google],
           callbacks: {
             signInSuccessWithAuthResult: (authResult) => {
               window.location.href = '/'
