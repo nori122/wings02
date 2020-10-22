@@ -4,6 +4,8 @@ export const state = () => ({
   status: '',
   token: localStorage.getItem('token') || '',
   username: '',
+  uid: '',
+  photoUrl: '',
   idToken: {},
 })
 
@@ -11,6 +13,8 @@ export const mutations = {
   async setUser(state, user) {
     state.status = 'loggedIn'
     state.username = user.displayName
+    state.uid = user.uid
+    state.photoUrl = user.photoURL
     state.idToken = await user.getIdToken(true)
   },
   logout(state) {
