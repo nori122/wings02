@@ -38,7 +38,9 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <div>{{ username }}</div>
-      <v-btn v-if="isLoggedIn" @click="logout">logout</v-btn>
+      <v-btn icon
+        ><v-avatar><img :src="photoUrl" alt="profile" /></v-avatar
+      ></v-btn>
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -92,7 +94,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('auth', ['username']),
+    ...mapState('auth', ['username', 'photoUrl']),
     ...mapGetters('auth', ['isLoggedIn']),
   },
   methods: {
