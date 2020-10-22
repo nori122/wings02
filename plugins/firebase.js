@@ -1,6 +1,7 @@
 import firebase from 'firebase'
 import 'firebase/auth'
 import 'firebase/messaging'
+import 'firebase/firestore'
 
 const config = {
   apiKey: process.env.FB_API_KEY,
@@ -21,4 +22,5 @@ export const authProviders = {
   Google: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 }
 
+export const db = firebase.firestore()
 export const auth = firebase.auth()
