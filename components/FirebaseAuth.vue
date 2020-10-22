@@ -19,7 +19,7 @@ export default {
           signInOptions: [authProviders.Email, authProviders.Google],
           callbacks: {
             signInSuccessWithAuthResult: (authResult) => {
-              window.location.href = '/'
+              window.location.href = 'list'
               return false
             },
           },
