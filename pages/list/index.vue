@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 import { mapState } from 'vuex'
 import { db } from '~/plugins/firebase'
 
@@ -28,6 +29,7 @@ export default {
           uid: this.uid,
           username: this.username,
           photoUrl: this.photoUrl,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         })
         .then(function () {
           console.log('Document successfully written!')
