@@ -23,17 +23,17 @@ export default {
   methods: {
     createUser() {
       db.collection('users')
-        .add({
-          first: 'Ada',
-          last: 'Lovelace',
-          born: 1815,
+        .doc(this.uid)
+        .set({
+          uid: this.uid,
+          username: this.username,
+          photoUrl: this.photoUrl,
         })
-
-        .then(function (docRef) {
-          console.log('Document written with ID: ', docRef.id)
+        .then(function () {
+          console.log('Document successfully written!')
         })
         .catch(function (error) {
-          console.error('Error adding document: ', error)
+          console.error('Error writing document: ', error)
         })
     },
   },
