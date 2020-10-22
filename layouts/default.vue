@@ -37,6 +37,8 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <div>{{ username }}</div>
+      <v-btn v-if="isLoggedIn" @click="logout">logout</v-btn>
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -63,6 +65,8 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -84,8 +88,15 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js',
+      title: 'Wings02',
     }
+  },
+  computed: {
+    ...mapState('auth', ['username']),
+    ...mapGetters('auth', ['isLoggedIn']),
+  },
+  methods: {
+    ...mapActions('auth', ['logout']),
   },
 }
 </script>
