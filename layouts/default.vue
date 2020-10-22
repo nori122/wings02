@@ -38,9 +38,17 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <div>{{ username }}</div>
-      <v-btn icon
-        ><v-avatar><img :src="photoUrl" alt="profile" /></v-avatar
-      ></v-btn>
+      <v-btn v-if="isLoggedIn" icon
+        ><v-avatar
+          ><img v-if="photoUrl" :src="photoUrl" alt="profile" /><v-icon
+            v-else
+            dark
+          >
+            mdi-account-circle
+          </v-icon></v-avatar
+        ></v-btn
+      >
+      <v-btn v-if="isLoggedIn" @click="logout">logout</v-btn>
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>

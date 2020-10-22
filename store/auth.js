@@ -20,6 +20,8 @@ export const mutations = {
   logout(state) {
     state.status = 'loggedOut'
     state.username = ''
+    state.photoUrl = ''
+    state.uid = ''
   },
 }
 
