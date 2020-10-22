@@ -34,6 +34,9 @@ export default {
         .then(function () {
           console.log('Document successfully written!')
         })
+        .then(function () {
+          window.location.href = 'register'
+        })
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
