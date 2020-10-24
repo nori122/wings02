@@ -60,12 +60,12 @@ export default {
           contentUrl: this.contentUrl,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         })
-        .then(function (docRef) {
+        .then((docRef) => {
           console.log('Document written with ID: ', docRef.id)
-        })
-        .then(function () {
-          // window.location.href = 'confirm'
-          window.location.href = 'https://wings02-acd9a.web.app/confirm/'
+          this.$router.push({
+            path: '/confirm',
+            query: { itemId: docRef.id },
+          })
         })
         .catch(function (error) {
           console.error('Error adding document: ', error)
