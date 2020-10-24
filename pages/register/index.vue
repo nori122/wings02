@@ -18,12 +18,12 @@
       </div>
     </v-col>
     <v-col cols="10">
-      <v-spacer>
-        <v-text-field
-          placeholder="http://www.yoursite.org/your-post"
-          solo
-        ></v-text-field>
-      </v-spacer>
+      <v-text-field
+        v-model="contentUrl"
+        placeholder="http://www.yoursite.org/your-post"
+        solo
+      ></v-text-field>
+      <p>{{ contentUrl }}</p>
     </v-col>
 
     <v-col cols="auto" class="mt-12">
@@ -43,6 +43,9 @@ import { mapState } from 'vuex'
 import { db } from '~/plugins/firebase'
 
 export default {
+  data: () => ({
+    contentUrl: '',
+  }),
   computed: {
     ...mapState('auth', ['uid', 'username', 'photoUrl']),
   },
@@ -54,6 +57,7 @@ export default {
         .add({
           name: 'Tokyo',
           country: 'Japan',
+          contentUrl: this.contentUrl,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         })
         .then(function (docRef) {
