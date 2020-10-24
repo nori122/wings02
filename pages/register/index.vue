@@ -1,7 +1,9 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" sm="12" class="py-12">
+    <v-col cols="12" sm="12" class="pt-12">
       <div class="text-h3">翻訳ドキュメントの追加</div>
+    </v-col>
+    <v-col cols="12">
       <div class="text-h5">URLからインポート</div>
       <v-divider></v-divider>
     </v-col>
@@ -25,15 +27,45 @@
     </v-col>
 
     <v-col cols="auto" class="mt-12">
-      <v-btn dark width="200px">インポートする</v-btn>
+      <v-btn dark width="200px" @click="createItem">インポートする</v-btn>
     </v-col>
     <v-col cols="8" offset="4">
       <div class="text-caption">
-        インポート後に文章を編集することができます。
-      </div>
-      <div class="text-caption">
         あなたが所有権を持つ記事のみをインポートしてください
       </div>
+      <div class="text-caption">次の画面で登録を完了させます。</div>
     </v-col>
   </v-row>
 </template>
+<script>
+import firebase from 'firebase'
+import { mapState } from 'vuex'
+import { db } from '~/plugins/firebase'
+
+export default {
+  computed: {
+    ...mapState('auth', ['uid', 'username', 'photoUrl']),
+  },
+  methods: {
+    createItem() {
+      db.collection('users')
+        .doc(this.uid)
+        .collection('items')
+        .add({
+          name: 'Tokyo',
+          country: 'Japan',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+        .then(function (docRef) {
+          console.log('Document written with ID: ', docRef.id)
+        })
+        .then(function () {
+          window.location.href = 'confirm'
+        })
+        .catch(function (error) {
+          console.error('Error adding document: ', error)
+        })
+    },
+  },
+}
+</script>
