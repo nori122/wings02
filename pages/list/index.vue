@@ -35,7 +35,8 @@ export default {
           console.log('Document successfully written!')
         })
         .then(function () {
-          window.location.href = 'register'
+          // window.location.href = 'register'
+          window.location.href = 'https://wings02-acd9a.web.app/register'
         })
         .catch(function (error) {
           console.error('Error writing document: ', error)
