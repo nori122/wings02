@@ -3,6 +3,7 @@
     <v-col cols="12" sm="12" class="py-12">
       <div class="text-h3">翻訳ドキュメントの追加</div>
       <div class="text-h5">URLからインポート</div>
+      <v-divider></v-divider>
     </v-col>
     <v-col cols="12" class="ma-5">
       <div class="text-center text-subtitle-1">
