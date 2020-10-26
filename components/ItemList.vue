@@ -1,30 +1,17 @@
 <template>
   <v-row>
-    <v-col cols="12">
-      <v-btn @click="getItems">取得</v-btn>
-    </v-col>
-    <!-- <v-col>{{ items }}</v-col> -->
-    <v-col>
-      <table>
-        <!-- テーブルヘッダー -->
-        <thead>
-          <tr>
-            <th class="id">ID</th>
-            <th class="comment">コメント</th>
-            <th class="state">状態</th>
-            <th class="button">-</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- [1] ここに <tr> で ToDo の要素を1行づつ繰り返し表示したい -->
-        </tbody>
-      </table></v-col
-    >
+    <!-- <v-col>
+      <v-progress-linear height="25" value="15">
+        <strong>いい感じ</strong>
+      </v-progress-linear>
+    </v-col> -->
     <v-col cols="12">
       <v-card>
         <v-card-title>
-          翻訳コンテンツの一覧
+          <span>翻訳コンテンツの一覧</span>
+          <v-btn class="ml-10" @click="getItems">テーブルの更新</v-btn>
           <v-spacer></v-spacer>
+
           <v-text-field
             v-model="search"
             append-icon="mdi-magnify"
@@ -33,12 +20,22 @@
             hide-details
           ></v-text-field>
         </v-card-title>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          :search="search"
-        ></v-data-table> </v-card
-    ></v-col>
+        <v-data-table :headers="headers" :items="desserts" :search="search">
+          <template v-slot:item.fat="{ item }">
+            <v-progress-linear
+              :background-opacity="0.3"
+              :buffer-value="100"
+              :height="25"
+              :width="150"
+              :rounded="true"
+              :value="item.statusLevel"
+            >
+              <strong>{{ item.status }}</strong>
+            </v-progress-linear>
+          </template>
+        </v-data-table>
+      </v-card></v-col
+    >
   </v-row>
 </template>
 
@@ -54,21 +51,24 @@ export default {
       search: '',
       headers: [
         {
-          text: 'Dessert (100g serving)',
+          text: '最初の項目',
           align: 'start',
           sortable: false,
           value: 'contentUrl',
         },
-        { text: 'contentUrl', value: 'contentUrl' },
-        { text: 'name ', value: 'name' },
-        { text: 'country ', value: 'country' },
-        { text: 'createdAt ', value: 'createdAt' },
+        // { text: 'contentUrl', value: 'contentUrl' },
+        // { text: 'name ', value: 'name' },
+        // { text: 'country ', value: 'country' },
+        // { text: 'createdAt ', value: 'createdAt' },
+        { text: 'Fat (g)', value: 'fat' },
       ],
       desserts: [
         {
-          name: 'Frozen Yogurt',
+          name: 'test',
           calories: 159,
           fat: 6.0,
+          status: '見積もり中',
+          statusLevel: 25,
           carbs: 24,
           protein: 4.0,
           iron: '1%',
@@ -77,6 +77,8 @@ export default {
           name: 'Ice cream sandwich',
           calories: 237,
           fat: 9.0,
+          status: '翻訳中',
+          statusLevel: 50,
           carbs: 37,
           protein: 4.3,
           iron: '1%',
