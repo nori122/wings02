@@ -19,11 +19,11 @@ export default {
           signInOptions: [authProviders.Email, authProviders.Google],
           callbacks: {
             signInSuccessWithAuthResult: (authResult) => {
-              window.location.hash = '/'
+              window.location.hash = 'register'
               return false
             },
           },
-          signInSuccessUrl: '/',
+          signInSuccessUrl: 'register',
           signInFlow: 'popup',
         }
 
