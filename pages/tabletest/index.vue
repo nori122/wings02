@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-btn @click="getItems">取得</v-btn>
     </v-col>
-    <v-col>{{ items }}</v-col>
+    <!-- <v-col>{{ items }}</v-col> -->
     <v-col>
       <table>
         <!-- テーブルヘッダー -->
@@ -23,6 +23,8 @@
     <v-col cols="12">
       <v-card>
         <v-card-title>
+          翻訳コンテンツの一覧
+          <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
             append-icon="mdi-magnify"
@@ -54,7 +56,7 @@ export default {
         {
           text: 'Dessert (100g serving)',
           align: 'start',
-          filterable: false,
+          sortable: false,
           value: 'contentUrl',
         },
         { text: 'contentUrl', value: 'contentUrl' },
