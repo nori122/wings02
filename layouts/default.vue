@@ -86,13 +86,13 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
+          title: 'list',
+          to: 'list',
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          title: 'register',
+          to: 'register',
         },
       ],
       miniVariant: false,
