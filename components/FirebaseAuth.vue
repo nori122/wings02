@@ -19,8 +19,7 @@ export default {
           signInOptions: [authProviders.Email, authProviders.Google],
           callbacks: {
             signInSuccessWithAuthResult: (authResult) => {
-              window.location.hash = 'list'
-              // window.location.hash = 'https://wings02-acd9a.web.app/list'
+              window.location.hash = '/'
               return false
             },
           },
@@ -30,7 +29,7 @@ export default {
 
         ui.start('#firebaseui-auth-container', config)
       } else {
-        this.$router.push('/')
+        this.$router.push('register')
       }
     })
   },

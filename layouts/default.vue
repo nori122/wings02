@@ -54,9 +54,9 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container fluid fill-height class="cyan lighten-5">
-        <nuxt />
-      </v-container>
+      <!-- <v-container fluid class="cyan lighten-5"> -->
+      <nuxt />
+      <!-- </v-container> -->
     </v-main>
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
