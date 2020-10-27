@@ -17,7 +17,7 @@
           >
             Wingsにログインする
           </p>
-          <firebase-auth class="mb-md-12" />
+          <firebase-auth />
         </v-card>
       </v-col>
     </v-row>

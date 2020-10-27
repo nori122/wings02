@@ -3,6 +3,7 @@
 </template>
 
 <script>
+// import * as firebaseui from 'firebaseui'
 import { auth, authProviders } from '~/plugins/firebase'
 
 export default {
@@ -19,14 +20,14 @@ export default {
           signInOptions: [authProviders.Email, authProviders.Google],
           callbacks: {
             signInSuccessWithAuthResult: (authResult) => {
-              window.location.hash = '../register'
+              window.location.href = '../register'
               return false
             },
           },
           signInSuccessUrl: '../register',
           signInFlow: 'popup',
           // Terms of service url.
-          // tosUrl: 'inspire',
+          // tosUrl: '../tos',
           // Privacy policy url.
           // privacyPolicyUrl: '../privacyPolicy',
         }

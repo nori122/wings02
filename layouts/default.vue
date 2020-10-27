@@ -24,30 +24,37 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar v-if="isLoggedIn" :clipped-left="clipped" fixed app>
+    <v-app-bar
+      v-if="isLoggedIn"
+      :clipped-left="clipped"
+      fixed
+      app
+      color="deep-purple accent-4"
+      dark
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
+      <!-- <v-btn icon @click.stop="clipped = !clipped">
         <v-icon>mdi-application</v-icon>
       </v-btn>
       <v-btn icon @click.stop="fixed = !fixed">
         <v-icon>mdi-minus</v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <div>{{ username }}</div>
-      <v-btn v-if="isLoggedIn" icon>
+      <!-- <div>{{ username }}</div> -->
+      <v-btn class="mr-5" icon>
         <v-avatar>
           <img v-if="photoUrl" :src="photoUrl" alt="profile" />
           <v-icon v-else dark> mdi-account-circle </v-icon>
         </v-avatar>
       </v-btn>
-      <v-btn v-if="isLoggedIn" @click="logout">logout</v-btn>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <v-btn v-if="isLoggedIn" outlined @click="logout">logout</v-btn>
+      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
     <v-main>
       <!-- <v-container fluid class="cyan lighten-5"> -->
@@ -82,19 +89,19 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'コンテンツ一覧',
+          title: '翻訳コンテンツ一覧',
           to: 'list',
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'コンテンツの追加',
+          title: '翻訳を依頼する',
           to: 'register',
         },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Wings コンテンツ管理',
+      title: 'Wings 翻訳コンテンツ管理システム',
     }
   },
   computed: {
