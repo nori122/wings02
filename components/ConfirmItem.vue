@@ -22,7 +22,13 @@
         <v-btn class="ma-5" to="list">一覧に戻る</v-btn>
         <v-dialog v-model="dialog" width="500">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">
+            <v-btn
+              color="red lighten-2"
+              dark
+              v-bind="attrs"
+              v-on="on"
+              @click="estimateItem"
+            >
               見積もり依頼（無料）
             </v-btn>
           </template>
@@ -47,7 +53,7 @@
           </v-card>
         </v-dialog>
       </v-col>
-      <v-btn @click="estimateItem">console</v-btn>
+      <!-- <v-btn @click="estimateItem">テスト</v-btn> -->
     </v-row>
   </v-container>
 </template>
