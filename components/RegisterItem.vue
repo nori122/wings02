@@ -1,8 +1,13 @@
 <template>
   <v-container fluid>
-    <v-row class="mx-12" justify="center" align="center" align-content="start">
+    <v-row
+      class="mx-md-12 mx-1"
+      justify="center"
+      align="center"
+      align-content="start"
+    >
       <v-col cols="12" sm="12" class="pt-12">
-        <div class="text-h3">翻訳ドキュメントの追加</div>
+        <div class="text-h3 primary--text">翻訳ドキュメントの追加</div>
       </v-col>
       <v-col cols="12">
         <div class="text-h5">URLからインポート</div>
@@ -13,11 +18,11 @@
           既に発信済みのブログの記事のURLから、翻訳を依頼することができます。
         </div>
       </v-col>
-      <v-col cols="8" class="mt-12">
-        <div class="text-subtitle-2">
-          翻訳を依頼するコンテンツのカテゴリを選択してください。
-        </div>
+      <v-col md="8" class="mt-12">
         <v-col cols="12">
+          <div class="text-subtitle-2">
+            翻訳を依頼するコンテンツのカテゴリを選択してください。
+          </div>
           <v-select
             v-model="contentCategory"
             :items="category"
@@ -27,30 +32,28 @@
           ></v-select>
         </v-col>
         <!-- <hr /> -->
-        <div class="text-subtitle-2">
-          コンテンツのカテゴリで「その他」を選択された場合は、文章の種類について簡単に記述ください
-        </div>
         <v-col cols="12">
+          <div class="text-subtitle-2">
+            コンテンツのカテゴリで「その他」を選択された場合は、文章の種類について簡単に記述ください
+          </div>
           <v-text-field
             v-model="categoryDescription"
             placeholder="（例）Wings Blogsの米国Appストアにおける説明文章"
             solo
           ></v-text-field>
         </v-col>
-        <div class="text-subtitle-2">
-          コンテンツにタイトルをつけてください。このデータは、ご自身の翻訳コンテンツの一覧、検索等で使用されます。
-        </div>
         <v-col cols="12">
+          <div class="text-subtitle-2">
+            コンテンツにタイトルをつけてください。このデータは、あなたの翻訳コンテンツの一覧表示、検索等で使用されます。
+          </div>
           <v-text-field
             v-model="contentTitle"
             placeholder="（例）海外のユーザーを獲得したい方へ！英語圏の定番プラットフォーム4選"
             solo
           ></v-text-field>
         </v-col>
-        <div class="text-subtitle-2">
-          翻訳を依頼するブログ記事を入力してください。
-        </div>
         <v-col cols="12">
+          <div class="text-subtitle-2">コンテンツのURLを記入してください。</div>
           <v-text-field
             v-model="contentUrl"
             placeholder="（例）http://www.yoursite.org/your-post"
