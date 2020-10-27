@@ -19,11 +19,11 @@
         </div>
         <v-col cols="12">
           <v-select
+            v-model="contentCategory"
             :items="category"
             label="コンテンツのカテゴリ"
             dense
             solo
-            v-model="contentCategory"
           ></v-select>
         </v-col>
         <!-- <hr /> -->

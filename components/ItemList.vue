@@ -26,7 +26,6 @@
               :background-opacity="0.3"
               :buffer-value="100"
               :height="25"
-              :width="150"
               :rounded="true"
               :value="item.statusLevel"
             >
@@ -52,16 +51,14 @@ export default {
       headers: [
         {
           text: 'カテゴリ',
-          align: 'start',
-          sortable: false,
           value: 'contentCategory',
         },
         // { text: 'contentTitle ', value: 'contentTitle' },
         { text: 'タイトル', value: 'contentTitle' },
         // { text: 'categoryDescription ', value: 'categoryDescription' },
-        { text: 'URL', value: 'contentUrl' },
         // { text: '作成日 ', value: 'createdAt' },
-        { text: 'status ', value: 'status' },
+        { text: 'status ', value: 'status', width: '30%' },
+        { text: 'input URL', value: 'contentUrl' },
       ],
     }
   },
