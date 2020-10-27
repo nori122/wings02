@@ -19,21 +19,21 @@ export default {
           signInOptions: [authProviders.Email, authProviders.Google],
           callbacks: {
             signInSuccessWithAuthResult: (authResult) => {
-              window.location.hash = 'register'
+              window.location.hash = '../register'
               return false
             },
           },
-          signInSuccessUrl: 'register',
+          signInSuccessUrl: '../register',
           signInFlow: 'popup',
           // Terms of service url.
-          // tosUrl: '<your-tos-url>',
+          // tosUrl: 'inspire',
           // Privacy policy url.
-          // privacyPolicyUrl: '<your-privacy-policy-url>',
+          // privacyPolicyUrl: '../privacyPolicy',
         }
 
         ui.start('#firebaseui-auth-container', config)
       } else {
-        this.$router.push('register')
+        this.$router.push('../register')
       }
     })
   },

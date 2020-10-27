@@ -11,13 +11,13 @@
         </p>
       </v-col>
       <v-col cols="12" md="5">
-        <v-card class="py-10 py-md-12">
+        <v-card class="py-5 py-md-5">
           <p
             class="text-h5 text-md-h4 text-center primary--text py-md-10 mb-10 mb-md-10"
           >
             Wingsにログインする
           </p>
-          <firebase-auth />
+          <firebase-auth class="mb-md-12" />
         </v-card>
       </v-col>
     </v-row>
