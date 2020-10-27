@@ -1,10 +1,15 @@
 <template>
-  <v-row>
+  <v-row justify="end">
     <!-- <v-col>
       <v-progress-linear height="25" value="15">
         <strong>いい感じ</strong>
       </v-progress-linear>
     </v-col> -->
+    <v-col cols="auto">
+      <v-btn to="register" height="50" dark color="red lighten-2"
+        ><span class="text-h6">翻訳を依頼する</span></v-btn
+      >
+    </v-col>
     <v-col cols="12">
       <v-card>
         <v-card-title>

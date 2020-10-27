@@ -82,19 +82,19 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'list',
+          title: 'コンテンツ一覧',
           to: 'list',
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'register',
+          title: 'コンテンツの追加',
           to: 'register',
         },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Wings02',
+      title: 'Wings コンテンツ管理',
     }
   },
   computed: {
