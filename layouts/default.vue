@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar v-if="isLoggedIn" :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
@@ -38,16 +38,12 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <div>{{ username }}</div>
-      <v-btn v-if="isLoggedIn" icon
-        ><v-avatar
-          ><img v-if="photoUrl" :src="photoUrl" alt="profile" /><v-icon
-            v-else
-            dark
-          >
-            mdi-account-circle
-          </v-icon></v-avatar
-        ></v-btn
-      >
+      <v-btn v-if="isLoggedIn" icon>
+        <v-avatar>
+          <img v-if="photoUrl" :src="photoUrl" alt="profile" />
+          <v-icon v-else dark> mdi-account-circle </v-icon>
+        </v-avatar>
+      </v-btn>
       <v-btn v-if="isLoggedIn" @click="logout">logout</v-btn>
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
