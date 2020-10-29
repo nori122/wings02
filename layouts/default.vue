@@ -90,12 +90,12 @@ export default {
         {
           icon: 'mdi-apps',
           title: '翻訳コンテンツ一覧',
-          to: 'list',
+          to: '../list',
         },
         {
           icon: 'mdi-chart-bubble',
           title: '翻訳を依頼する',
-          to: 'register',
+          to: '../register',
         },
       ],
       miniVariant: false,

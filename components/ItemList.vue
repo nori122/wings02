@@ -5,6 +5,9 @@
         <strong>いい感じ</strong>
       </v-progress-linear>
     </v-col> -->
+    <v-col cols="12" sm="12" class="pt-12">
+      <div class="text-h3 primary--text">翻訳ドキュメントの一覧</div>
+    </v-col>
     <v-col cols="auto">
       <v-btn to="register" height="50" dark color="red lighten-2"
         ><span class="text-h6">翻訳を依頼する</span></v-btn
@@ -13,8 +16,7 @@
     <v-col cols="12">
       <v-card>
         <v-card-title>
-          <span>翻訳コンテンツの一覧</span>
-          <v-btn class="ml-10" @click="getItems">テーブルの更新</v-btn>
+          <v-btn class="" @click="getItems">テーブルの更新</v-btn>
           <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
@@ -36,6 +38,14 @@
             >
               <strong>{{ item.statusDescription }}</strong>
             </v-progress-linear>
+          </template>
+          <template v-slot:item.output="{ item }">
+            <!-- <v-btn text icon to="/http*google.com"> -->
+            <v-btn v-if="item.output" icon :href="item.output">
+              <v-icon>mdi-download</v-icon>
+            </v-btn>
+            <v-btn v-else dark color="red lighten-2">見積もり</v-btn>
+            <!-- </v-btn> -->
           </template>
         </v-data-table>
       </v-card></v-col
