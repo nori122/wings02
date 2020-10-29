@@ -97,6 +97,9 @@ export default {
     categoryDescription: '',
     contentTitle: '',
     contentUrl: '',
+    output: '',
+    statusDescription: '',
+    statusLevel: '',
   }),
   computed: {
     ...mapState('auth', ['uid', 'username', 'photoUrl']),
@@ -112,6 +115,9 @@ export default {
           contentTitle: this.contentTitle,
           contentUrl: this.contentUrl,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          output: '-',
+          statusDescription: '見積もり依頼前',
+          statusLevel: 0,
         })
         .then((docRef) => {
           console.log('Document written with ID: ', docRef.id)

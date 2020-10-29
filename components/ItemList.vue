@@ -64,7 +64,7 @@ export default {
         // { text: '作成日 ', value: 'createdAt' },
         { text: 'ステータス ', value: 'status', width: '30%' },
         { text: 'input URL', value: 'contentUrl' },
-        { text: '翻訳済みコンテンツ', value: 'test' },
+        { text: '翻訳済みコンテンツ', value: 'output' },
       ],
     }
   },
