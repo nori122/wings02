@@ -115,7 +115,6 @@ export default {
           contentTitle: this.contentTitle,
           contentUrl: this.contentUrl,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-          output: '-',
           statusDescription: '見積もり依頼前',
           statusLevel: 0,
         })

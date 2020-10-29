@@ -20,38 +20,7 @@
       </v-col>
       <v-col cols="auto">
         <v-btn class="ma-5" to="list">一覧に戻る</v-btn>
-        <v-dialog v-model="dialog" width="500">
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              color="red lighten-2"
-              dark
-              v-bind="attrs"
-              v-on="on"
-              @click="estimateItem"
-            >
-              見積もり依頼（無料）
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title class="headline grey lighten-2">
-              見積もり依頼を受領しました☺️
-            </v-card-title>
-
-            <v-card-text class="my-5">
-              見積もりをご依頼いただきありがとうございます。<br />
-              48時間以内にご登録のメールアドレスまで見積もりをお送りします。
-            </v-card-text>
-
-            <v-divider></v-divider>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn to="list" color="primary" text @click="dialog = false">
-                一覧に戻る
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+        <EstimateItem />
       </v-col>
       <!-- <v-btn @click="estimateItem">テスト</v-btn> -->
     </v-row>
@@ -60,12 +29,17 @@
 <script>
 import { mapState } from 'vuex'
 import { db } from '~/plugins/firebase'
+
+import EstimateItem from '~/components/EstimateItem.vue'
 export default {
   data() {
     return {
       dialog: false,
       itemId: this.$route.query.itemId,
     }
+  },
+  components: {
+    EstimateItem,
   },
   computed: {
     ...mapState('auth', ['uid', 'username', 'photoUrl']),
