@@ -28,18 +28,18 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { db } from '~/plugins/firebase'
-
+// import { db } from '~/plugins/firebase'
 import EstimateItem from '~/components/EstimateItem.vue'
+
 export default {
+  components: {
+    EstimateItem,
+  },
   data() {
     return {
       dialog: false,
       itemId: this.$route.query.itemId,
     }
-  },
-  components: {
-    EstimateItem,
   },
   computed: {
     ...mapState('auth', ['uid', 'username', 'photoUrl']),
@@ -48,25 +48,25 @@ export default {
     uidCheck() {
       console.log(this.itemId)
     },
-    estimateItem() {
-      db.collection('users')
-        .doc(this.uid)
-        .collection('items')
-        .doc(this.itemId)
-        .set(
-          {
-            statusDescription: '見積もり中',
-            statusLevel: 30,
-          },
-          { merge: true }
-        )
-        .then((docRef) => {
-          console.log('Document written with ID: ', this.itemId)
-        })
-        .catch(function (error) {
-          console.error('Error adding document: ', error)
-        })
-    },
+    // estimateItem() {
+    //   db.collection('users')
+    //     .doc(this.uid)
+    //     .collection('items')
+    //     .doc(this.itemId)
+    //     .set(
+    //       {
+    //         statusDescription: '見積もり中',
+    //         statusLevel: 30,
+    //       },
+    //       { merge: true }
+    //     )
+    //     .then((docRef) => {
+    //       console.log('Document written with ID: ', this.itemId)
+    //     })
+    //     .catch(function (error) {
+    //       console.error('Error adding document: ', error)
+    //     })
+    // },
   },
 }
 </script>

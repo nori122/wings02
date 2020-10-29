@@ -44,7 +44,9 @@
             <v-btn v-if="item.output" icon :href="item.output">
               <v-icon>mdi-download</v-icon>
             </v-btn>
-            <v-btn v-else dark color="red lighten-2">見積もり</v-btn>
+            <!-- <v-btn v-else dark color="red lighten-2">見積もり</v-btn> -->
+            <!-- <EstimateItem v-else /> -->
+
             <!-- </v-btn> -->
           </template>
         </v-data-table>
@@ -57,12 +59,17 @@
 // import firebase from 'firebase'
 import { mapState } from 'vuex'
 import { db } from '~/plugins/firebase'
+// import EstimateItem from '~/components/EstimateItem.vue'
 
 export default {
+  // components: {
+  //   EstimateItem,
+  // },
   data() {
     return {
       items: [],
       search: '',
+      dialog: false,
       headers: [
         {
           text: 'カテゴリ',
