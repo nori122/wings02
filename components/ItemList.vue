@@ -62,8 +62,9 @@ export default {
         { text: 'タイトル', value: 'contentTitle' },
         // { text: 'categoryDescription ', value: 'categoryDescription' },
         // { text: '作成日 ', value: 'createdAt' },
-        { text: 'status ', value: 'status', width: '30%' },
+        { text: 'ステータス ', value: 'status', width: '30%' },
         { text: 'input URL', value: 'contentUrl' },
+        { text: '翻訳済みコンテンツ', value: 'test' },
       ],
     }
   },
