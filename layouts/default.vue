@@ -25,7 +25,6 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      v-if="isLoggedIn"
       :clipped-left="clipped"
       fixed
       app
