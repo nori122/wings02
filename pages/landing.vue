@@ -1,37 +1,32 @@
 <template>
-  <v-container fluid fill-height class="cyan lighten-5">
-    <v-row justify="center" align="center">
-      <v-col class="my-md-5 pa-md-10" cols="12" md="5">
-        <p class="text-h4 text-md-h3 my-md-10">Wingsへようこそ</p>
-        <p>
-          WINGSは、個人クリエイターの発信を世界中の人々に届けるために創られました。
-        </p>
-        <p>
-          高精度翻訳エンジンと、世界中のネイティブスピーカーの校正により、あなたの文章を全世界へ届けましょう。
-        </p>
-      </v-col>
-      <v-col cols="12" md="5">
-        <v-card class="py-5 py-md-5">
-          <p
-            class="text-h5 text-md-h4 text-center primary--text py-md-10 mb-10 mb-md-10"
-          >
-            Wingsにログインする
-          </p>
-          <firebase-auth />
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div>
+    <Hero id="Hero" />
+    <Service id="Service" />
+    <Vision id="Vision" />
+    <Blogs id="Blogs" />
+    <Contact id="Contact" />
+    <!-- <firebase-auth /> -->
+  </div>
 </template>
 
 <script>
-import FirebaseAuth from '@/components/FirebaseAuth'
+// import FirebaseAuth from '@/components/FirebaseAuth'
+import Hero from '~/components/Hero.vue'
+import Vision from '~/components/Vision.vue'
+import Service from '~/components/Service.vue'
+import Blogs from '~/components/Blogs.vue'
+import Contact from '~/components/Contact.vue'
 
 export default {
   layout: 'landing',
   name: 'Landing',
   components: {
-    FirebaseAuth,
+    // FirebaseAuth,
+    Hero,
+    Vision,
+    Service,
+    Blogs,
+    Contact,
   },
 }
 </script>
