@@ -28,7 +28,8 @@
 import FirebaseAuth from '@/components/FirebaseAuth'
 
 export default {
-  name: 'Login',
+  layout: 'landing',
+  name: 'Landing',
   components: {
     FirebaseAuth,
   },
