@@ -2,8 +2,8 @@
   <v-container fluid class="contact-wrapper secondary--text">
     <h1 align="center" class="mb-5 font-weight-medium">CONTACT</h1>
     <p class="ma-5">サービスや値段についてなど、お気軽にお問い合わせください</p>
+    <login />
     <div class="text-center my-6">
-      <firebase-auth />
       <v-btn
         rounded
         color="accent"
@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import FirebaseAuth from '@/components/FirebaseAuth'
+import login from '@/components/login'
 
 export default {
   components: {
-    FirebaseAuth,
+    login,
   },
 }
 </script>
