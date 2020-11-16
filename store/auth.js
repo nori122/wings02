@@ -1,4 +1,4 @@
-import { auth } from '~/plugins/firebase'
+import { db, auth } from '~/plugins/firebase'
 
 export const state = () => ({
   status: '',
@@ -32,6 +32,14 @@ export const mutations = {
     state.uid = user.uid
     state.photoUrl = user.photoURL
     state.idToken = await user.getIdToken(true)
+    db.collection('users').doc(user.uid).set(
+      {
+        username: user.displayName,
+        uid: user.uid,
+        photoUrl: user.photoURL,
+      },
+      { merge: true }
+    )
   },
   logout(state) {
     state.status = 'loggedOut'
