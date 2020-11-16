@@ -20,11 +20,11 @@ export default {
           signInOptions: [authProviders.Email, authProviders.Google],
           callbacks: {
             signInSuccessWithAuthResult: (authResult) => {
-              window.location.href = '../register'
+              window.location.href = '../list'
               return false
             },
           },
-          signInSuccessUrl: '../register',
+          signInSuccessUrl: '../list',
           signInFlow: 'popup',
           // Terms of service url.
           // tosUrl: '../tos',
@@ -34,7 +34,7 @@ export default {
 
         ui.start('#firebaseui-auth-container', config)
       } else {
-        this.$router.push('../register')
+        this.$router.push('../list')
       }
     })
   },
