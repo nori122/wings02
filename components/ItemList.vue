@@ -6,7 +6,7 @@
       </v-progress-linear>
     </v-col> -->
     <v-col cols="12" sm="12" class="pt-12">
-      <div class="text-h3 primary--text">翻訳ドキュメントの一覧</div>
+      <div class="text-h3 secondary--text">翻訳ドキュメントの一覧</div>
     </v-col>
     <v-col cols="auto">
       <v-btn to="register" height="50" dark color="red lighten-2"
@@ -16,7 +16,7 @@
     <v-col cols="12">
       <v-card>
         <v-card-title>
-          <v-btn class="" @click="getItems">テーブルの更新</v-btn>
+          <!-- <v-btn class="" @click="getItems">テーブルの更新</v-btn> -->
           <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
@@ -58,16 +58,13 @@
 <script>
 // import firebase from 'firebase'
 import { mapState } from 'vuex'
-import { db } from '~/plugins/firebase'
+// import { db } from '~/plugins/firebase'
 // import EstimateItem from '~/components/EstimateItem.vue'
 
 export default {
-  // components: {
-  //   EstimateItem,
-  // },
   data() {
     return {
-      items: [],
+      // items: [],
       search: '',
       dialog: false,
       headers: [
@@ -86,22 +83,26 @@ export default {
     }
   },
   computed: {
-    ...mapState('auth', ['uid', 'username', 'photoUrl']),
+    ...mapState('auth', ['uid', 'username', 'photoUrl', 'items']),
+    // ...mapState('list', ['items']),
   },
-  methods: {
-    getItems() {
-      db.collection('users')
-        .doc(this.uid)
-        .collection('items')
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, ' => ', doc.data())
-            this.items.push(doc.data())
-          })
-        })
-    },
+  created() {
+    this.$store.dispatch('auth/getItems')
   },
+  // methods: {
+  //   getItems() {
+  //     db.collection('users')
+  //       .doc(this.uid)
+  //       .collection('items')
+  //       .get()
+  //       .then((querySnapshot) => {
+  //         querySnapshot.forEach((doc) => {
+  //           // doc.data() is never undefined for query doc snapshots
+  //           console.log(doc.id, ' => ', doc.data())
+  //           this.items.push(doc.data())
+  //         })
+  //       })
+  //   },
+  // },
 }
 </script>

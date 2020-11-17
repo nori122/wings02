@@ -7,6 +7,7 @@ export const state = () => ({
   uid: '',
   photoUrl: '',
   idToken: {},
+  items: [],
 })
 
 export const getters = {
@@ -22,6 +23,11 @@ export const actions = {
     auth.signOut().then(() => {
       commit('logout')
     })
+  },
+  getItems({ commit }) {
+    setTimeout(() => {
+      commit('getItems')
+    }, 2000)
   },
 }
 
@@ -46,5 +52,21 @@ export const mutations = {
     state.username = ''
     state.photoUrl = ''
     state.uid = ''
+  },
+  getItems(state) {
+    console.log('uidは:' + state.uid)
+    db.collection('users')
+      .doc(state.uid)
+      .collection('items')
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, ' => ', doc.data())
+          state.items.push(doc.data())
+        })
+      })
+      .catch((error) => {
+        console.log('error : ' + error)
+      })
   },
 }
