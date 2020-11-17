@@ -30,6 +30,7 @@
         <v-data-table :headers="headers" :items="items" :search="search">
           <template v-slot:item.status="{ item }">
             <v-progress-linear
+              color="blue"
               :background-opacity="0.3"
               :buffer-value="100"
               :height="25"

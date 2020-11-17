@@ -7,7 +7,7 @@
       align-content="start"
     >
       <v-col cols="12" sm="12" class="pt-12">
-        <div class="text-h3 primary--text">翻訳ドキュメントの追加</div>
+        <div class="text-h3 secondary--text">翻訳ドキュメントの追加</div>
       </v-col>
       <v-col cols="12">
         <div class="text-h5">URLからインポート</div>

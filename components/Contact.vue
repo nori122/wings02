@@ -2,7 +2,6 @@
   <v-container fluid class="contact-wrapper secondary--text">
     <h1 align="center" class="mb-5 font-weight-medium">CONTACT</h1>
     <p class="ma-5">サービスや値段についてなど、お気軽にお問い合わせください</p>
-    <login />
     <div class="text-center my-6">
       <v-btn
         rounded
@@ -16,15 +15,6 @@
   </v-container>
 </template>
 
-<script>
-import login from '@/components/login'
-
-export default {
-  components: {
-    login,
-  },
-}
-</script>
 <style scoped>
 .contact-wrapper {
   height: 70vh;
